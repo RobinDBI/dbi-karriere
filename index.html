@@ -998,24 +998,115 @@ footer a:hover { color: white; }
   </div>
 </section>
 
+<!-- DIVIDER: Jetzt bewerben -->
 <div class="divider">
-  <h2>Bereit für den nächsten Schritt?</h2>
-  <p>Reichen Sie Ihre Bewerbung direkt online ein – einfach, schnell und vollständig.</p>
+  <h2>Bereit für den ersten Schritt?</h2>
+  <p>Kein Lebenslauf, kein Anschreiben. Eine kurze Nachricht genügt – ich melde mich persönlich.</p>
   <a href="#bewerbung" class="btn-white">Jetzt bewerben</a>
 </div>
 
-<section id="bewerbung">
+<!-- ═══════════════════════════════════════════════════════════
+     PHASE 1: ERSTKONTAKT – für neue Interessenten
+     ═══════════════════════════════════════════════════════════ -->
+<section id="bewerbung" style="background:var(--white)">
   <div class="form-wrapper">
-    <div style="margin-bottom:2.5rem">
-      <div class="sec-label" style="margin-top:0">Online-Bewerbung</div>
+    <div style="margin-bottom:2rem">
+      <div class="sec-label" style="margin-top:0">Schritt 1</div>
+      <h2 class="sec-title" style="margin-bottom:.5rem">Jetzt bewerben</h2>
+      <p style="color:var(--muted);font-size:.92rem;max-width:560px">
+        Sie sind neu hier und möchten mehr erfahren? Hinterlassen Sie kurz Ihre Kontaktdaten und ein paar Sätze zu sich –
+        ich melde mich persönlich für ein erstes, unverbindliches Gespräch.
+        Kein Lebenslauf nötig, keine Vorbereitung erforderlich.
+      </p>
+    </div>
+
+    <div class="alert alert-error" id="alert-error-p1"></div>
+    <div class="alert alert-success" id="alert-success-p1"></div>
+
+    <form id="erstkontakt-form" novalidate>
+      <div class="fsec-title" style="margin-top:0;padding-top:0;border-top:none">Ihre Kontaktdaten</div>
+      <div class="form-grid">
+        <div class="field"><label>Vorname <span class="req">*</span></label><input type="text" id="p1-vorname" placeholder="Max" required></div>
+        <div class="field"><label>Nachname <span class="req">*</span></label><input type="text" id="p1-nachname" placeholder="Mustermann" required></div>
+      </div>
+      <div class="form-grid">
+        <div class="field"><label>E-Mail <span class="req">*</span></label><input type="email" id="p1-email" placeholder="max@beispiel.de" required></div>
+        <div class="field"><label>Telefon <span class="req">*</span></label><input type="tel" id="p1-telefon" placeholder="0160 12345678" required></div>
+      </div>
+      <div class="form-grid">
+        <div class="field"><label>Welches Profil passt zu Ihnen? <span class="req">*</span></label>
+          <select id="p1-profil" required>
+            <option value="">Bitte wählen …</option>
+            <option>Quereinsteiger</option>
+            <option>Wiedereinsteiger</option>
+            <option>Vertriebsprofi</option>
+            <option>Vertriebsleiter</option>
+          </select>
+        </div>
+        <div class="field"><label>Aktuelle / bisherige Tätigkeit</label>
+          <input type="text" id="p1-beruf" placeholder="z. B. Selbstständiger Handwerksmeister …">
+        </div>
+      </div>
+      <div class="form-grid full">
+        <div class="field"><label>Wie sind Sie auf uns aufmerksam geworden?</label>
+          <select id="p1-quelle">
+            <option value="">Bitte wählen …</option>
+            <option>Online-Jobbörse</option>
+            <option>Empfehlung</option>
+            <option>Postbank / Deutsche Bank Filiale</option>
+            <option>Website Deutsche Bank Immobilien</option>
+            <option>Social Media</option>
+            <option>Sonstiges</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-grid full">
+        <div class="field">
+          <label>Kurze Vorstellung / Was motiviert Sie? (optional)</label>
+          <textarea id="p1-motivation" placeholder="Ein paar Sätze reichen – was treibt Sie an, was suchen Sie?"></textarea>
+        </div>
+      </div>
+
+      <div class="consent-box">
+        <input type="checkbox" id="p1-datenschutz" required>
+        <label for="p1-datenschutz">Ich habe die <a href="https://www.deutsche-bank-immobilien.de/datenschutz" target="_blank" style="color:var(--db)">Datenschutzhinweise</a> gelesen und stimme der Verarbeitung meiner Daten zu.</label>
+      </div>
+      <div class="submit-row">
+        <p class="submit-note">Mit * markierte Felder sind Pflichtfelder.</p>
+        <button type="submit" class="btn-submit" id="p1-submit-btn">Nachricht absenden →</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     DIVIDER zwischen Phase 1 und Phase 2
+     ═══════════════════════════════════════════════════════════ -->
+<div class="divider" style="background:var(--green);padding:2.5rem 2rem;">
+  <h2 style="font-size:1.3rem">Sie haben bereits ein Erstgespräch geführt?</h2>
+  <p style="font-size:.92rem">Dann reichen Sie jetzt Ihre vollständigen Unterlagen ein. Ihr Vertriebsleiter oder Robin Böcker hat Ihnen Ihren Freigabecode mitgeteilt.</p>
+  <a href="#unterlagen" class="btn-white" style="font-size:.88rem">Unterlagen einreichen →</a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PHASE 2: UNTERLAGEN – für Bewerber nach dem Erstgespräch
+     ═══════════════════════════════════════════════════════════ -->
+<section id="unterlagen" style="background:var(--bg)">
+  <div class="form-wrapper">
+    <div style="margin-bottom:2rem">
+      <div class="sec-label" style="margin-top:0">Schritt 2</div>
       <h2 class="sec-title" style="margin-bottom:.5rem">Unterlagen einreichen</h2>
-      <p style="color:var(--muted);font-size:.92rem">Füllen Sie das Formular aus und laden Sie Ihre Unterlagen hoch. Nutzen Sie den <strong style="color:#3a1d8a">🤖 KI-Prüfen</strong>-Button bei jedem Dokument, um Fehler vor dem Absenden zu erkennen.</p>
+      <p style="color:var(--muted);font-size:.92rem;max-width:580px">
+        Sie haben das Erstgespräch geführt und möchten weitermachen – gut.
+        Laden Sie jetzt Ihre Unterlagen hoch. Der <strong style="color:#3a1d8a">🤖 KI-Prüfen</strong>-Button
+        analysiert jedes Dokument sofort auf Vollständigkeit und typische Fehler, bevor Sie absenden.
+      </p>
     </div>
 
     <!-- FORMULAR-DOWNLOAD -->
     <div class="download-section">
       <h3>📄 DBI-Formulare herunterladen</h3>
-      <p>Einige Formulare erhalten Sie von Ihrem Ansprechpartner. Falls Sie bereits einen Freigabecode haben, können Sie die Formulare hier direkt herunterladen.</p>
+      <p>Falls Sie bereits einen Freigabecode haben, können Sie die Formulare hier direkt herunterladen.</p>
       <div class="code-row">
         <input type="text" class="code-input" id="freigabe-input" placeholder="Freigabecode eingeben" maxlength="10">
         <button class="btn-code" onclick="checkCode()">Freigeben</button>
@@ -1034,7 +1125,7 @@ footer a:hover { color: white; }
     <div class="alert alert-warn" id="alert-warn"></div>
 
     <form id="bewerbungsform" novalidate>
-      <div class="fsec-title">Persönliche Daten</div>
+      <div class="fsec-title" style="margin-top:0;padding-top:0;border-top:none">Persönliche Daten</div>
       <div class="form-grid">
         <div class="field"><label>Vorname <span class="req">*</span></label><input type="text" id="vorname" placeholder="Max" required></div>
         <div class="field"><label>Nachname <span class="req">*</span></label><input type="text" id="nachname" placeholder="Mustermann" required></div>
@@ -1057,23 +1148,6 @@ footer a:hover { color: white; }
           </select>
         </div>
       </div>
-      <div class="form-grid full">
-        <div class="field"><label>Aktuelle / bisherige Tätigkeit</label><input type="text" id="beruf" placeholder="z. B. Selbstständiger Handwerksmeister …"></div>
-      </div>
-      <div class="form-grid full">
-        <div class="field"><label>Wie sind Sie auf uns aufmerksam geworden?</label>
-          <select id="quelle">
-            <option value="">Bitte wählen …</option>
-            <option>Online-Jobbörse</option><option>Empfehlung</option>
-            <option>Postbank / Deutsche Bank Filiale</option>
-            <option>Website Deutsche Bank Immobilien</option>
-            <option>Social Media</option><option>Sonstiges</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-grid full">
-        <div class="field"><label>Kurze Vorstellung / Motivation (optional)</label><textarea id="motivation" placeholder="Was motiviert Sie zu diesem Schritt?"></textarea></div>
-      </div>
 
       <div class="fsec-title">Unterlagen hochladen</div>
       <p style="font-size:.82rem;color:var(--muted);margin-bottom:1.25rem">Laden Sie verfügbare Dokumente als PDF hoch. Der <strong style="color:#3a1d8a">🤖 KI-Prüfen</strong>-Button analysiert jedes Dokument sofort auf Vollständigkeit und typische Fehler.</p>
@@ -1081,9 +1155,7 @@ footer a:hover { color: white; }
       <div class="upload-list">
 
         <div class="upload-item" id="ui-lebenslauf">
-          <div class="upload-header">
-            <span class="upload-label">Lebenslauf <span class="ubadge ubadge-p">Pflicht</span></span>
-          </div>
+          <div class="upload-header"><span class="upload-label">Lebenslauf <span class="ubadge ubadge-p">Pflicht</span></span></div>
           <div class="upload-hint">Tabellarisch, lückenlos, mit Foto und Unterschrift. PDF.</div>
           <div class="upload-row">
             <label class="upload-btn" for="file-lebenslauf">📎 Datei wählen</label>
@@ -1095,9 +1167,7 @@ footer a:hover { color: white; }
         </div>
 
         <div class="upload-item" id="ui-ausweis">
-          <div class="upload-header">
-            <span class="upload-label">Personalausweis (Kopie, beide Seiten) <span class="ubadge ubadge-p">Pflicht</span></span>
-          </div>
+          <div class="upload-header"><span class="upload-label">Personalausweis (Kopie, beide Seiten) <span class="ubadge ubadge-p">Pflicht</span></span></div>
           <div class="upload-hint">Gültig, beide Seiten lesbar. PDF oder Scan.</div>
           <div class="upload-row">
             <label class="upload-btn" for="file-ausweis">📎 Datei wählen</label>
@@ -1109,9 +1179,7 @@ footer a:hover { color: white; }
         </div>
 
         <div class="upload-item" id="ui-bewerbungsbogen">
-          <div class="upload-header">
-            <span class="upload-label">Bewerbungsbogen (DBI-Formular) <span class="ubadge ubadge-p">Pflicht</span></span>
-          </div>
+          <div class="upload-header"><span class="upload-label">Bewerbungsbogen (DBI-Formular) <span class="ubadge ubadge-p">Pflicht</span></span></div>
           <div class="upload-hint">Vollständig ausgefüllt und unterschrieben. Formular oben herunterladen.</div>
           <div class="upload-row">
             <label class="upload-btn" for="file-bewerbungsbogen">📎 Datei wählen</label>
@@ -1123,9 +1191,7 @@ footer a:hover { color: white; }
         </div>
 
         <div class="upload-item" id="ui-fuehrungszeugnis">
-          <div class="upload-header">
-            <span class="upload-label">Polizeiliches Führungszeugnis <span class="ubadge ubadge-p">Pflicht</span></span>
-          </div>
+          <div class="upload-header"><span class="upload-label">Polizeiliches Führungszeugnis <span class="ubadge ubadge-p">Pflicht</span></span></div>
           <div class="upload-hint">Nicht älter als 3 Monate. Bundesamt für Justiz. Original postalisch nachzureichen.</div>
           <div class="upload-row">
             <label class="upload-btn" for="file-fuehrungszeugnis">📎 Datei wählen</label>
@@ -1137,10 +1203,8 @@ footer a:hover { color: white; }
         </div>
 
         <div class="upload-item" id="ui-schufa">
-          <div class="upload-header">
-            <span class="upload-label">SCHUFA-Bonitätsauskunft <span class="ubadge ubadge-p">Pflicht</span></span>
-          </div>
-          <div class="upload-hint">Zertifikat via meineSCHUFA.de, nicht älter als 3 Monate, mit Verifizierungscode. Original postalisch nachzureichen.</div>
+          <div class="upload-header"><span class="upload-label">SCHUFA-Bonitätsauskunft <span class="ubadge ubadge-p">Pflicht</span></span></div>
+          <div class="upload-hint">Zertifikat via meineSCHUFA.de, nicht älter als 3 Monate, mit Verifizierungscode.</div>
           <div class="upload-row">
             <label class="upload-btn" for="file-schufa">📎 Datei wählen</label>
             <input type="file" id="file-schufa" accept=".pdf" onchange="fileSelected(this,'schufa')">
@@ -1151,10 +1215,8 @@ footer a:hover { color: white; }
         </div>
 
         <div class="upload-item" id="ui-erlaubnis34c">
-          <div class="upload-header">
-            <span class="upload-label">Erlaubnis §34c GewO <span class="ubadge ubadge-p">Pflicht</span></span>
-          </div>
-          <div class="upload-hint">Ziffer 1 (Immobilienvermittlung) muss abgedeckt sein. Muss auf Sie persönlich ausgestellt sein – nicht auf eine GmbH.</div>
+          <div class="upload-header"><span class="upload-label">Erlaubnis §34c GewO <span class="ubadge ubadge-p">Pflicht</span></span></div>
+          <div class="upload-hint">Ziffer 1 (Immobilienvermittlung). Muss auf Sie persönlich ausgestellt sein – nicht auf eine GmbH.</div>
           <div class="upload-row">
             <label class="upload-btn" for="file-erlaubnis">📎 Datei wählen</label>
             <input type="file" id="file-erlaubnis" accept=".pdf" onchange="fileSelected(this,'erlaubnis34c')">
@@ -1165,9 +1227,7 @@ footer a:hover { color: white; }
         </div>
 
         <div class="upload-item" id="ui-gewerbeanmeldung">
-          <div class="upload-header">
-            <span class="upload-label">Gewerbeanmeldung / -ummeldung <span class="ubadge ubadge-p">Pflicht</span></span>
-          </div>
+          <div class="upload-header"><span class="upload-label">Gewerbeanmeldung / -ummeldung <span class="ubadge ubadge-p">Pflicht</span></span></div>
           <div class="upload-hint">Tätigkeit muss Immobilienvermittlung / freier Handelsvertreter §84 HGB ausweisen.</div>
           <div class="upload-row">
             <label class="upload-btn" for="file-gewerbe">📎 Datei wählen</label>
@@ -1179,9 +1239,7 @@ footer a:hover { color: white; }
         </div>
 
         <div class="upload-item optional" id="ui-gzr">
-          <div class="upload-header">
-            <span class="upload-label">Auskunft Gewerbezentralregister <span class="ubadge ubadge-o">Optional</span></span>
-          </div>
+          <div class="upload-header"><span class="upload-label">Auskunft Gewerbezentralregister <span class="ubadge ubadge-o">Optional</span></span></div>
           <div class="upload-hint">Nur bei bestehender oder kürzlich beendeter Selbstständigkeit. Nicht älter als 3 Monate.</div>
           <div class="upload-row">
             <label class="upload-btn" for="file-gzr">📎 Datei wählen</label>
@@ -1193,9 +1251,7 @@ footer a:hover { color: white; }
         </div>
 
         <div class="upload-item optional" id="ui-taetig">
-          <div class="upload-header">
-            <span class="upload-label">Tätigkeitsnachweise letzte 3 Jahre <span class="ubadge ubadge-o">Empfohlen</span></span>
-          </div>
+          <div class="upload-header"><span class="upload-label">Tätigkeitsnachweise letzte 3 Jahre <span class="ubadge ubadge-o">Empfohlen</span></span></div>
           <div class="upload-hint">Arbeitszeugnisse und Gewerbean-/-abmeldungen. Mehrere Dokumente bitte in einer PDF zusammenführen.</div>
           <div class="upload-row">
             <label class="upload-btn" for="file-taetig">📎 Datei wählen</label>
@@ -1219,7 +1275,7 @@ footer a:hover { color: white; }
       </div>
       <div class="submit-row">
         <p class="submit-note">Mit * markierte Felder sind Pflichtfelder.</p>
-        <button type="submit" class="btn-submit" id="submit-btn">Bewerbung absenden →</button>
+        <button type="submit" class="btn-submit" id="submit-btn">Unterlagen absenden →</button>
       </div>
     </form>
   </div>
@@ -1404,11 +1460,60 @@ function fileToBase64(file) {
 function val(id) { return document.getElementById(id).value.trim(); }
 
 function showAlert(type, msg) {
-  ['error','success','warn'].forEach(t => { const el = document.getElementById('alert-'+t); el.style.display='none'; el.textContent=''; });
+  ['error','success','warn'].forEach(t => { const el = document.getElementById('alert-'+t); if(el){el.style.display='none'; el.textContent='';} });
   const el = document.getElementById('alert-'+type);
-  el.textContent = msg; el.style.display = 'block';
-  el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  if(el){ el.textContent = msg; el.style.display = 'block'; el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
 }
+
+// PHASE 1: Erstkontakt-Formular
+document.getElementById('erstkontakt-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const e1 = document.getElementById('alert-error-p1');
+  const e2 = document.getElementById('alert-success-p1');
+  e1.style.display='none'; e2.style.display='none';
+
+  const vorname = val('p1-vorname'), nachname = val('p1-nachname'),
+        email = val('p1-email'), telefon = val('p1-telefon'),
+        profil = val('p1-profil');
+
+  if (!vorname || !nachname || !email || !telefon || !profil) {
+    e1.textContent = 'Bitte füllen Sie alle Pflichtfelder aus.';
+    e1.style.display = 'block'; return;
+  }
+  if (!document.getElementById('p1-datenschutz').checked) {
+    e1.textContent = 'Bitte stimmen Sie den Datenschutzhinweisen zu.';
+    e1.style.display = 'block'; return;
+  }
+
+  const btn = document.getElementById('p1-submit-btn');
+  btn.disabled = true; btn.textContent = 'Wird gesendet …';
+
+  try {
+    const body = new FormData();
+    body.append('_subject', 'Neue Interessentenanfrage: ' + vorname + ' ' + nachname + ' (' + profil + ')');
+    body.append('vorname', vorname); body.append('nachname', nachname);
+    body.append('email', email); body.append('telefon', telefon);
+    body.append('profil', profil);
+    body.append('beruf', val('p1-beruf'));
+    body.append('quelle', val('p1-quelle'));
+    body.append('motivation', val('p1-motivation'));
+    const r = await fetch('https://formsubmit.co/robin.boecker@db.com', { method: 'POST', body });
+    if (r.ok) {
+      e2.textContent = '✓ Ihre Nachricht wurde gesendet. Robin Böcker meldet sich persönlich bei Ihnen. Vielen Dank!';
+      e2.style.display = 'block';
+      document.getElementById('erstkontakt-form').reset();
+    } else {
+      e1.textContent = 'Fehler beim Senden. Schreiben Sie direkt an robin.boecker@db.com.';
+      e1.style.display = 'block';
+    }
+  } catch {
+    e1.textContent = 'Verbindungsfehler. Schreiben Sie direkt an robin.boecker@db.com.';
+    e1.style.display = 'block';
+  }
+  btn.disabled = false; btn.textContent = 'Nachricht absenden →';
+});
+
+// PHASE 2: Unterlagen-Formular
 
 document.getElementById('bewerbungsform').addEventListener('submit', async function(e) {
   e.preventDefault();
