@@ -695,6 +695,138 @@ footer a:hover { color: white; }
   </div>
 </section>
 
+<!-- PRIVAT-SEKTION: Mensch hinter der Marke -->
+<section id="privat" style="background:var(--white);padding:5rem 2rem;">
+  <style>
+    .privat-inner { max-width: 900px; margin: 0 auto; }
+    .privat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .privat-main-img {
+      grid-row: 1 / 3;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(0,24,168,0.12);
+      position: relative;
+    }
+    .privat-main-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      min-height: 420px;
+    }
+    .privat-sub-img {
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .privat-sub-img img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .privat-text-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.25rem;
+    }
+    .privat-quote {
+      font-size: 1.15rem;
+      font-weight: 600;
+      line-height: 1.6;
+      color: var(--text);
+      border-left: 4px solid var(--db);
+      padding-left: 1.25rem;
+      letter-spacing: -.01em;
+    }
+    .privat-body {
+      font-size: .92rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .privat-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      margin-top: .5rem;
+    }
+    .privat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: var(--db-light);
+      color: var(--db);
+      font-size: .78rem;
+      font-weight: 600;
+      padding: .35rem .9rem;
+      border-radius: 20px;
+    }
+    @media (max-width: 700px) {
+      .privat-grid {
+        grid-template-columns: 1fr;
+      }
+      .privat-main-img {
+        grid-row: auto;
+      }
+      .privat-main-img img {
+        min-height: 280px;
+      }
+    }
+  </style>
+
+  <div class="privat-inner">
+    <div class="sec-label">Wer ich bin</div>
+    <h2 class="sec-title">Mehr als ein Direktor</h2>
+    <p class="sec-sub">Teamdenken ist keine Folie. Es ist, wie ich lebe – im Job und daneben.</p>
+
+    <div class="privat-grid">
+
+      <!-- Linke Spalte: Großes Bild (Selfie Golfplatz) -->
+      <div class="privat-main-img">
+        <!-- Datei: IMG_8667_3.jpeg auf Netlify hochladen, src anpassen -->
+        <img src="IMG_8667_3.jpeg" alt="Robin Böcker auf dem Golfplatz"
+             onerror="this.style.background='var(--db-light)';this.style.minHeight='420px';">
+      </div>
+
+      <!-- Rechts oben: Text -->
+      <div class="privat-text-block">
+        <p class="privat-quote">„Nach 14 Jahren in dieser Branche weiß ich: Zahlen entstehen im Kopf, aber Leistung entsteht im Team."</p>
+        <p class="privat-body">
+          Wer bei mir anfängt, hat vom ersten Tag an einen Ansprechpartner – nicht nur auf dem Papier.
+          Ich kenne jeden Schritt, den meine Makler gehen, weil ich ihn selbst gegangen bin.
+          Das schafft kein Organigramm. Das schafft Vertrauen.
+        </p>
+        <p class="privat-body">
+          Zum Abschalten brauche ich Grün unter den Füßen. Golf gibt mir, was der Berufsalltag manchmal nicht kann:
+          Stille, Fokus, und das ehrliche Gefühl, dass Vorbereitung den Unterschied macht – auf dem Platz wie im Business.
+        </p>
+        <div class="privat-pills">
+          <span class="privat-pill">🏌️ Golf</span>
+          <span class="privat-pill">🎣 Raubfischangeln</span>
+          <span class="privat-pill">🐕 Hundehalter aus Überzeugung</span>
+          <span class="privat-pill">📍 Xanten</span>
+        </div>
+      </div>
+
+      <!-- Rechts unten: Zweites Bild (Strand/Küste) -->
+      <div class="privat-sub-img">
+        <!-- Datei: IMG_4257.jpeg auf Netlify hochladen, src anpassen -->
+        <img src="IMG_4257.jpeg" alt="Robin Böcker an der Küste"
+             onerror="this.style.background='var(--db-light)';this.style.display='block';this.style.height='200px';">
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <section style="background:var(--white)">
   <div class="inner">
     <div class="kontakt-card">
