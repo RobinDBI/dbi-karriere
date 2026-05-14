@@ -197,6 +197,29 @@ section { padding: 4rem 2rem; }
 .kontakt-links { display: flex; gap: 1rem; flex-wrap: wrap; }
 .klink { display: inline-flex; align-items: center; gap: .4rem; background: rgba(255,255,255,.15); color: white; text-decoration: none; padding: .45rem 1rem; border-radius: 6px; font-size: .85rem; font-weight: 500; }
 .klink:hover { background: rgba(255,255,255,.25); }
+/* LINKEDIN SEKTION */
+.linkedin-section { background: var(--bg); padding: 4rem 2rem; }
+.linkedin-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
+.linkedin-meta { display: flex; align-items: center; gap: 1rem; }
+.linkedin-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; object-position: top; border: 2px solid var(--db); }
+.linkedin-name { font-size: .95rem; font-weight: 700; }
+.linkedin-followers { font-size: .78rem; color: var(--muted); }
+.linkedin-link { display: inline-flex; align-items: center; gap: .4rem; background: var(--db); color: white; text-decoration: none; padding: .5rem 1.1rem; border-radius: 6px; font-size: .82rem; font-weight: 600; }
+.linkedin-link:hover { background: var(--db-dark); }
+.posts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+.post-card { background: white; border: 1px solid var(--border); border-radius: var(--rl); padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; transition: border-color .2s, transform .2s; }
+.post-card:hover { border-color: var(--db); transform: translateY(-2px); }
+.post-card-header { display: flex; align-items: center; gap: .75rem; }
+.post-card-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; object-position: top; flex-shrink: 0; }
+.post-card-meta { }
+.post-card-name { font-size: .85rem; font-weight: 700; color: var(--text); }
+.post-card-role { font-size: .72rem; color: var(--muted); }
+.post-card-tag { display: inline-block; background: var(--db-light); color: var(--db); font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; padding: .2rem .55rem; border-radius: 4px; margin-bottom: .25rem; }
+.post-card-text { font-size: .88rem; color: var(--text); line-height: 1.65; flex: 1; }
+.post-card-text strong { display: block; font-size: .95rem; margin-bottom: .4rem; }
+.post-card-footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: .75rem; font-size: .75rem; color: var(--muted); }
+.post-card-reactions { display: flex; align-items: center; gap: .3rem; }
+
 .divider { background: var(--db); color: white; padding: 3rem 2rem; text-align: center; }
 .divider h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: .75rem; }
 .divider p { opacity: .85; margin-bottom: 1.5rem; }
@@ -328,7 +351,7 @@ footer a:hover { color: white; }
   <div class="stats-inner">
     <div class="stat"><div class="stat-num">800+</div><div class="stat-label">selbstständige Immobilienberater bundesweit</div></div>
     <div class="stat"><div class="stat-num">40+</div><div class="stat-label">Jahre Erfahrung im Immobilienmarkt</div></div>
-    <div class="stat"><div class="stat-num">1,9 Mio.</div><div class="stat-label">Einwohner im Einzugsgebiet</div></div>
+    <div class="stat"><div class="stat-num">3,2 Mio.</div><div class="stat-label">Einwohner im Einzugsgebiet</div></div>
   </div>
 </div>
 
@@ -350,7 +373,7 @@ footer a:hover { color: white; }
         <div class="about-fact"><div class="about-fact-num">14+</div><div class="about-fact-label">Jahre Branchenerfahrung</div></div>
         <div class="about-fact"><div class="about-fact-num">30+</div><div class="about-fact-label">Makler im Team</div></div>
         <div class="about-fact"><div class="about-fact-num">8</div><div class="about-fact-label">Vertriebsleiter</div></div>
-        <div class="about-fact"><div class="about-fact-num">1,9 Mio.</div><div class="about-fact-label">Einwohner Einzugsgebiet</div></div>
+        <div class="about-fact"><div class="about-fact-num">3,2 Mio.</div><div class="about-fact-label">Einwohner Einzugsgebiet</div></div>
       </div>
     </div>
   </div>
@@ -414,6 +437,99 @@ footer a:hover { color: white; }
           <a href="https://www.linkedin.com/in/robin-böcker-21036b244" target="_blank" rel="noopener" class="klink">🔗 LinkedIn</a>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- LINKEDIN AUS DER PRAXIS -->
+<section class="linkedin-section">
+  <div class="inner">
+    <div class="linkedin-header">
+      <div>
+        <div class="sec-label">Aus der Praxis</div>
+        <h2 class="sec-title" style="margin-bottom:.25rem">Wie ich führe – in eigenen Worten</h2>
+        <p style="font-size:.92rem;color:var(--muted)">Ein Einblick in meinen Alltag als Direktor – direkt von LinkedIn.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.75rem">
+        <div class="linkedin-meta">
+          <!-- BILD 6 (Business-Portrait) als Avatar: src="MeGPT.png" -->
+          <img class="linkedin-avatar" src="MeGPT.png" alt="Robin Böcker">
+          <div>
+            <div class="linkedin-name">Robin Böcker</div>
+            <div class="linkedin-followers">4.388 Follower · LinkedIn</div>
+          </div>
+        </div>
+        <a href="https://www.linkedin.com/in/robin-b%C3%B6cker-21036b244" target="_blank" rel="noopener" class="linkedin-link">
+          🔗 Profil folgen
+        </a>
+      </div>
+    </div>
+
+    <div class="posts-grid">
+
+      <!-- POST 1: Erste Gesamttagung -->
+      <div class="post-card">
+        <div class="post-card-header">
+          <img class="post-card-avatar" src="MeGPT.png" alt="Robin Böcker">
+          <div class="post-card-meta">
+            <div class="post-card-tag">Teamaufbau</div>
+            <div class="post-card-name">Robin Böcker</div>
+            <div class="post-card-role">vor 1 Monat</div>
+          </div>
+        </div>
+        <div class="post-card-text">
+          <strong>Ein erstes Treffen – und direkt ein starkes Gefühl</strong>
+          Meine erste Gesamttagung mit dem neuen Team aus Südwestfalen und dem Rhein-Bergischen Land. Zum ersten Mal in dieser Konstellation – und die Stimmung war von Anfang an genau so, wie man es sich wünscht: Offen. Neugierig. Miteinander.<br><br>
+          Man konnte deutlich erkennen, dass hier gerade mehr entsteht als nur eine neue Struktur. <em>Hier wächst ein Team zusammen.</em>
+        </div>
+        <div class="post-card-footer">
+          <div class="post-card-reactions">❤️ 43 Reaktionen</div>
+          <span>6 Kommentare</span>
+        </div>
+      </div>
+
+      <!-- POST 2: Kein Makler startet allein -->
+      <div class="post-card">
+        <div class="post-card-header">
+          <img class="post-card-avatar" src="MeGPT.png" alt="Robin Böcker">
+          <div class="post-card-meta">
+            <div class="post-card-tag">Onboarding</div>
+            <div class="post-card-name">Robin Böcker</div>
+            <div class="post-card-role">vor 3 Monaten</div>
+          </div>
+        </div>
+        <div class="post-card-text">
+          <strong>Bei uns gilt: Kein Makler startet allein.</strong>
+          Gerade die ersten Wochen entscheiden darüber, wie gut jemand im neuen Umfeld ankommt – fachlich und menschlich. Deshalb nehme ich mir für jeden neuen Kollegen bewusst die Zeit, sie persönlich in die Welt der BankenMakler einzuführen.<br><br>
+          Wir sprechen über Abläufe, Zusammenarbeit mit den Banken, lokale Besonderheiten – alles, was für einen erfolgreichen Start wichtig ist.
+        </div>
+        <div class="post-card-footer">
+          <div class="post-card-reactions">❤️ 55 Reaktionen</div>
+          <span>4 Kommentare</span>
+        </div>
+      </div>
+
+      <!-- POST 3: Führungsphilosophie -->
+      <div class="post-card">
+        <div class="post-card-header">
+          <img class="post-card-avatar" src="MeGPT.png" alt="Robin Böcker">
+          <div class="post-card-meta">
+            <div class="post-card-tag">Leadership</div>
+            <div class="post-card-name">Robin Böcker</div>
+            <div class="post-card-role">vor 7 Monaten</div>
+          </div>
+        </div>
+        <div class="post-card-text">
+          <strong>Was tust du, wenn dein bester Mitarbeiter deinen Job will?</strong>
+          Für mich zeigt sich echte Führung nicht in Kontrolle. Sondern in der Fähigkeit, Talente im Team bewusst zu fördern. Auch wenn sie einem den Platz streitig machen könnten.<br><br>
+          Wer das zulässt, baut keine Hierarchie – sondern Vertrauen. Und aus Vertrauen entstehen Karrieren.
+        </div>
+        <div class="post-card-footer">
+          <div class="post-card-reactions">❤️ 44 Reaktionen</div>
+          <span>3 Kommentare · 2.656 Impressionen</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
