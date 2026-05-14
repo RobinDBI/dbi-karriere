@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karriere – Deutsche Bank Immobilien | Südwestfalen & Rhein-Bergisches Land</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --db: #0018A8; --db-dark: #00118a; --db-light: #e8eaf6;
+  --text: #1a1a2e; --muted: #555566; --border: #dddde8;
+  --bg: #f7f7fb; --white: #fff;
+  --green: #1a6e3c; --green-bg: #e8f5ee;
+  --warn: #7a5200; --warn-bg: #fff8e1;
+  --red: #c62828; --red-bg: #fce8e8;
+  --r: 10px; --rl: 16px;
+}
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+nav { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
+.nav-logo { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+.nav-mark { width: 36px; height: 36px; background: var(--db); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 14px; }
+.nav-text { font-size: .88rem; font-weight: 600; color: var(--text); line-height: 1.2; }
+.nav-text small { display: block; font-weight: 400; font-size: .72rem; color: var(--muted); }
+.nav-cta { background: var(--db); color: white; padding: .5rem 1.2rem; border-radius: 6px; text-decoration: none; font-size: .85rem; font-weight: 500; }
+.nav-cta:hover { background: var(--db-dark); }
+/* HERO - Split Layout mit Hintergrundbild */
+.hero {
+  position: relative;
+  min-height: 580px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--db);
+  color: white;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  /* BILD 4 (Bühne/Keynote) hier einsetzen: src="me26.png" oder Netlify-URL */
+  background-image: url('me26.png');
+  background-size: cover;
+  background-position: center top;
+  opacity: 0.22;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, rgba(0,24,168,0.97) 40%, rgba(0,24,168,0.65) 70%, rgba(0,24,168,0.2) 100%);
+}
+.hero-inner {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 5rem 2rem 4.5rem;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 3rem;
+  align-items: center;
+  width: 100%;
+}
+.hero-content { }
+.hero-badge { display: inline-block; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25); color: rgba(255,255,255,.9); font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; padding: .35rem 1rem; border-radius: 20px; margin-bottom: 1.5rem; }
+.hero h1 { font-size: clamp(1.9rem,4vw,2.8rem); font-weight: 700; line-height: 1.15; margin-bottom: 1.25rem; letter-spacing: -.02em; }
+.hero h1 em { font-style: normal; color: rgba(255,255,255,0.65); }
+.hero-lead { font-size: 1.05rem; opacity: .85; max-width: 500px; margin-bottom: 1.5rem; line-height: 1.7; }
+.hero-quote { border-left: 3px solid rgba(255,255,255,0.35); padding-left: 1rem; margin-bottom: 2.5rem; font-size: .95rem; opacity: .75; font-style: italic; line-height: 1.6; }
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-wp { background: white; color: var(--db); padding: .85rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: .95rem; transition: transform .15s, box-shadow .15s; }
+.btn-wp:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.3); }
+.btn-ws { background: transparent; color: white; padding: .85rem 2rem; border-radius: 8px; border: 1.5px solid rgba(255,255,255,.5); text-decoration: none; font-weight: 500; font-size: .95rem; }
+.btn-ws:hover { border-color: white; background: rgba(255,255,255,.08); }
+
+/* Hero-Foto (Bild 1, Parkfoto) rechts */
+.hero-photo-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.hero-photo {
+  width: 300px;
+  height: 380px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 16px;
+  border: 3px solid rgba(255,255,255,0.2);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+}
+.hero-photo-label {
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  color: var(--db);
+  padding: .5rem 1.2rem;
+  border-radius: 20px;
+  font-size: .78rem;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
+/* ÜBER MICH Sektion */
+.about-section {
+  background: var(--white);
+  padding: 5rem 2rem;
+}
+.about-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+.about-photo-wrap { position: relative; }
+.about-photo {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(0,24,168,0.12);
+}
+.about-photo-badge {
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--db);
+  color: white;
+  padding: .45rem 1.1rem;
+  border-radius: 20px;
+  font-size: .72rem;
+  font-weight: 700;
+  white-space: nowrap;
+  letter-spacing: .04em;
+}
+.about-text { padding-top: .5rem; }
+.about-text blockquote {
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--text);
+  border-left: 4px solid var(--db);
+  padding-left: 1.25rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: -.01em;
+}
+.about-text p { font-size: .95rem; color: var(--muted); line-height: 1.75; margin-bottom: 1rem; }
+.about-facts { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.5rem; }
+.about-fact { text-align: center; }
+.about-fact-num { font-size: 1.6rem; font-weight: 800; color: var(--db); line-height: 1; }
+.about-fact-label { font-size: .72rem; color: var(--muted); margin-top: .2rem; }
+
+@media (max-width: 700px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-photo-wrap { display: none; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-photo-wrap { max-width: 200px; margin: 0 auto 2.5rem; }
+}
+.stats { background: white; border-bottom: 1px solid var(--border); }
+.stats-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); }
+.stat { padding: 2rem; text-align: center; border-right: 1px solid var(--border); }
+.stat:last-child { border-right: none; }
+.stat-num { font-size: 2.2rem; font-weight: 800; color: var(--db); line-height: 1; margin-bottom: .4rem; letter-spacing: -.03em; }
+.stat-label { font-size: .82rem; color: var(--muted); }
+section { padding: 4rem 2rem; }
+.inner { max-width: 900px; margin: 0 auto; }
+.sec-label { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--db); margin-bottom: .75rem; }
+.sec-title { font-size: clamp(1.5rem,3vw,2rem); font-weight: 700; line-height: 1.2; letter-spacing: -.02em; margin-bottom: 1rem; }
+.sec-sub { font-size: 1rem; color: var(--muted); max-width: 560px; margin-bottom: 2.5rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 1rem; }
+.card { background: white; border: 1px solid var(--border); border-radius: var(--rl); padding: 1.5rem; transition: border-color .2s, transform .2s; }
+.card:hover { border-color: var(--db); transform: translateY(-2px); }
+.card-icon { width: 44px; height: 44px; background: var(--db-light); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1.3rem; }
+.card h3 { font-size: 1rem; font-weight: 600; margin-bottom: .5rem; }
+.card p { font-size: .88rem; color: var(--muted); line-height: 1.6; }
+.profile-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 1rem; margin-bottom: 2rem; }
+.profile-card { background: white; border: 1.5px solid var(--border); border-radius: var(--rl); padding: 1.5rem; }
+.profile-card h4 { font-size: .95rem; font-weight: 600; margin-bottom: .4rem; }
+.profile-card p { font-size: .8rem; color: var(--muted); }
+.prozess-steps { display: flex; flex-direction: column; gap: 0; }
+.prozess-step { display: grid; grid-template-columns: 48px 1fr; gap: 1.25rem; padding-bottom: 2rem; }
+.prozess-step:last-child { padding-bottom: 0; }
+.step-num-wrap { display: flex; flex-direction: column; align-items: center; }
+.step-num { width: 48px; height: 48px; background: var(--db); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+.step-line { width: 2px; flex: 1; background: var(--border); margin-top: 4px; min-height: 32px; }
+.prozess-step:last-child .step-line { display: none; }
+.step-content { padding-top: .75rem; }
+.step-content h4 { font-size: 1rem; font-weight: 600; margin-bottom: .35rem; }
+.step-content p { font-size: .88rem; color: var(--muted); }
+.kontakt-card { background: var(--db); color: white; border-radius: var(--rl); padding: 2.5rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.kontakt-avatar { width: 80px; height: 80px; background: rgba(255,255,255,.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; flex-shrink: 0; }
+.kontakt-info h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: .25rem; }
+.kontakt-info p { font-size: .88rem; opacity: .8; margin-bottom: .75rem; }
+.kontakt-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+.klink { display: inline-flex; align-items: center; gap: .4rem; background: rgba(255,255,255,.15); color: white; text-decoration: none; padding: .45rem 1rem; border-radius: 6px; font-size: .85rem; font-weight: 500; }
+.klink:hover { background: rgba(255,255,255,.25); }
+.divider { background: var(--db); color: white; padding: 3rem 2rem; text-align: center; }
+.divider h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: .75rem; }
+.divider p { opacity: .85; margin-bottom: 1.5rem; }
+.btn-white { display: inline-block; background: white; color: var(--db); padding: .85rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: .95rem; }
+
+/* FORMULAR-DOWNLOAD BEREICH */
+.download-section { background: var(--db-light); border: 1px solid #c5d5ee; border-radius: var(--rl); padding: 1.5rem; margin-bottom: 2rem; }
+.download-section h3 { font-size: .95rem; font-weight: 600; color: var(--db); margin-bottom: .5rem; }
+.download-section p { font-size: .82rem; color: var(--muted); margin-bottom: 1rem; }
+.code-row { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; margin-bottom: 1rem; }
+.code-input { border: 1px solid var(--border); border-radius: 6px; padding: .55rem .9rem; font-size: .92rem; font-family: inherit; outline: none; width: 180px; }
+.code-input:focus { border-color: var(--db); }
+.btn-code { background: var(--db); color: white; border: none; padding: .55rem 1.2rem; border-radius: 6px; font-size: .85rem; font-weight: 500; font-family: inherit; cursor: pointer; }
+.btn-code:hover { background: var(--db-dark); }
+.download-list { display: none; flex-direction: column; gap: .5rem; }
+.download-list.visible { display: flex; }
+.dl-item { display: flex; align-items: center; justify-content: space-between; background: white; border: 1px solid var(--border); border-radius: 8px; padding: .65rem 1rem; font-size: .85rem; }
+.dl-item span { color: var(--text); }
+.dl-btn { background: var(--db-light); color: var(--db); border: none; padding: .35rem .9rem; border-radius: 6px; font-size: .78rem; font-weight: 600; cursor: pointer; text-decoration: none; }
+.dl-btn:hover { background: var(--db); color: white; }
+.code-error { display: none; font-size: .8rem; color: var(--red); margin-top: .35rem; }
+
+/* BEWERBUNGSFORMULAR */
+#bewerbung { background: var(--white); padding: 4rem 2rem; }
+.form-wrapper { max-width: 760px; margin: 0 auto; }
+.fsec-title { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--db); margin-bottom: .5rem; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+.fsec-title:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.form-grid.full { grid-template-columns: 1fr; }
+.field { display: flex; flex-direction: column; gap: .35rem; }
+.field label { font-size: .82rem; font-weight: 500; }
+.field label .req { color: var(--db); margin-left: 2px; }
+.field input, .field select, .field textarea { border: 1px solid var(--border); border-radius: 8px; padding: .65rem .9rem; font-size: .92rem; font-family: inherit; color: var(--text); background: var(--white); transition: border-color .2s, box-shadow .2s; outline: none; width: 100%; }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--db); box-shadow: 0 0 0 3px rgba(0,24,168,.08); }
+.field textarea { min-height: 80px; resize: vertical; }
+
+/* UPLOAD MIT KI-PRÜFUNG */
+.upload-list { display: flex; flex-direction: column; gap: .75rem; margin-bottom: 1rem; }
+.upload-item { background: var(--bg); border: 1.5px dashed var(--border); border-radius: var(--r); padding: 1rem 1.25rem; transition: border-color .2s; }
+.upload-item.has-file { border-style: solid; border-color: var(--db); background: var(--db-light); }
+.upload-item.optional { opacity: .85; }
+.upload-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: .4rem; }
+.upload-label { font-size: .88rem; font-weight: 600; display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+.ubadge { font-size: .65rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; padding: .15rem .5rem; border-radius: 4px; }
+.ubadge-p { background: #fce8e8; color: var(--red); }
+.ubadge-o { background: #e8eaf6; color: var(--db); }
+.upload-hint { font-size: .75rem; color: var(--muted); margin-bottom: .6rem; }
+.upload-row { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; }
+.upload-btn { display: inline-flex; align-items: center; gap: .4rem; background: white; border: 1px solid var(--border); border-radius: 6px; padding: .45rem .9rem; font-size: .82rem; font-weight: 500; cursor: pointer; color: var(--text); white-space: nowrap; }
+.upload-btn:hover { border-color: var(--db); color: var(--db); }
+.upload-item.has-file .upload-btn { background: var(--db); color: white; border-color: var(--db); }
+.upload-filename { font-size: .8rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 200px; }
+.upload-filename.selected { color: var(--db); font-weight: 500; }
+input[type="file"] { display: none; }
+
+/* KI PRÜF-BUTTON */
+.ki-btn { display: inline-flex; align-items: center; gap: .4rem; background: #f0ecfa; border: 1px solid #c9b8f0; border-radius: 6px; padding: .4rem .85rem; font-size: .78rem; font-weight: 600; color: #3a1d8a; cursor: pointer; white-space: nowrap; transition: background .2s; }
+.ki-btn:hover { background: #e0d5f7; }
+.ki-btn:disabled { opacity: .5; cursor: not-allowed; }
+.ki-result { display: none; margin-top: .75rem; border-radius: 8px; padding: .75rem 1rem; font-size: .82rem; border: 1px solid; line-height: 1.6; }
+.ki-ok { background: var(--green-bg); color: var(--green); border-color: #9fd4b8; }
+.ki-warn { background: var(--warn-bg); color: var(--warn); border-color: #f5c842; }
+.ki-err { background: var(--red-bg); color: var(--red); border-color: #f5a5a5; }
+.ki-loading { background: #f0ecfa; color: #3a1d8a; border-color: #c9b8f0; }
+
+.consent-box { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r); padding: 1.25rem; margin: 1.5rem 0; display: flex; gap: .75rem; align-items: flex-start; }
+.consent-box input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--db); flex-shrink: 0; cursor: pointer; }
+.consent-box label { font-size: .82rem; color: var(--muted); line-height: 1.5; cursor: pointer; }
+.submit-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+.submit-note { font-size: .78rem; color: var(--muted); }
+.btn-submit { background: var(--db); color: white; border: none; padding: .9rem 2.5rem; border-radius: 8px; font-size: .95rem; font-weight: 600; font-family: inherit; cursor: pointer; display: flex; align-items: center; gap: .5rem; }
+.btn-submit:hover { background: var(--db-dark); }
+.btn-submit:disabled { opacity: .6; cursor: not-allowed; }
+.alert { display: none; border-radius: var(--r); padding: 1rem 1.25rem; font-size: .88rem; margin-bottom: 1.5rem; border: 1px solid; }
+.alert-error { background: var(--red-bg); color: var(--red); border-color: #f5a5a5; }
+.alert-success { background: var(--green-bg); color: var(--green); border-color: #9fd4b8; }
+.alert-warn { background: var(--warn-bg); color: var(--warn); border-color: #f5c842; }
+.prog-wrap { display: none; background: var(--bg); border: 1px solid var(--border); border-radius: var(--r); padding: 1rem 1.25rem; margin-top: 1rem; }
+.prog-label { font-size: .82rem; color: var(--muted); margin-bottom: .5rem; display: flex; justify-content: space-between; }
+.prog-track { height: 6px; background: var(--border); border-radius: 99px; overflow: hidden; }
+.prog-fill { height: 100%; background: var(--db); border-radius: 99px; transition: width .3s; width: 0%; }
+footer { background: var(--text); color: rgba(255,255,255,.7); padding: 2rem; text-align: center; font-size: .82rem; }
+footer a { color: rgba(255,255,255,.5); text-decoration: none; margin: 0 .5rem; }
+footer a:hover { color: white; }
+@media (max-width: 600px) {
+  .stats-inner { grid-template-columns: 1fr; }
+  .stat { border-right: none; border-bottom: 1px solid var(--border); }
+  .stat:last-child { border-bottom: none; }
+  .form-grid { grid-template-columns: 1fr; }
+  .kontakt-card { flex-direction: column; text-align: center; }
+  .hero-btns { flex-direction: column; align-items: center; }
+  nav { padding: 0 1rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-mark">DB</div>
+    <div class="nav-text">Deutsche Bank Immobilien<small>Südwestfalen & Rhein-Bergisches Land</small></div>
+  </a>
+  <a href="#bewerbung" class="nav-cta">Jetzt bewerben</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">Karriere · Südwestfalen & Rhein-Bergisches Land</div>
+      <h1>Ihre selbstständige Karriere als <em>Immobilienmakler</em> – mit dem richtigen Netzwerk von Tag 1</h1>
+      <p class="hero-lead">Ich rekrutiere keine Lebensläufe. Ich baue Teams. Wer zu mir kommt, bekommt echtes Coaching, qualifizierte Leads aus den Bankfilialen – und einen Direktor, der selbst weiß, wie es sich anfühlt, von null aufzubauen.</p>
+      <div class="hero-quote">14 Jahre in dieser Branche. Nicht hinter dem Schreibtisch – im Feld, mit meinen Leuten.</div>
+      <div class="hero-btns">
+        <a href="#bewerbung" class="btn-wp">Jetzt bewerben</a>
+        <a href="#ueber-mich" class="btn-ws">Robin kennenlernen</a>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <!-- BILD 1 (Parkfoto, beige Jacke): Datei "CE390DAA-EE2F-4B70-8B2B-5D17AD1F521F.PNG" auf Netlify hochladen und src anpassen -->
+      <img class="hero-photo" src="CE390DAA-EE2F-4B70-8B2B-5D17AD1F521F.PNG" alt="Robin Böcker – Direktor Immobilienvertrieb">
+      <div class="hero-photo-label">Robin Böcker · Direktor</div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-num">800+</div><div class="stat-label">selbstständige Immobilienberater bundesweit</div></div>
+    <div class="stat"><div class="stat-num">40+</div><div class="stat-label">Jahre Erfahrung im Immobilienmarkt</div></div>
+    <div class="stat"><div class="stat-num">1,9 Mio.</div><div class="stat-label">Einwohner im Einzugsgebiet</div></div>
+  </div>
+</div>
+
+<!-- ÜBER MICH -->
+<section id="ueber-mich" class="about-section">
+  <div class="about-grid">
+    <div class="about-photo-wrap">
+      <!-- BILD 6 (Business-Portrait, rote Krawatte): Datei "MeGPT.png" auf Netlify hochladen und src anpassen -->
+      <img class="about-photo" src="MeGPT.png" alt="Robin Böcker">
+      <div class="about-photo-badge">Direktor seit 2015</div>
+    </div>
+    <div class="about-text">
+      <div class="sec-label">Ihr Ansprechpartner</div>
+      <blockquote>Ich suche keine perfekten Lebensläufe. Ich suche Menschen, die wirklich wollen.</blockquote>
+      <p>Ich bin Robin Böcker, Direktor Immobilienvertrieb bei Deutsche Bank Immobilien GmbH. Meine Regionen sind Südwestfalen und das Rhein-Bergische Land – über 1,9 Millionen Einwohner, 8 Vertriebsleiter, mehr als 30 Makler in meinem Team.</p>
+      <p>Ich habe selbst als Makler angefangen, war Gebietsleiter, Vertriebsleiter – und kenne jeden Schritt dieses Weges aus eigener Erfahrung. Was mich antreibt: Menschen zu entwickeln. Zusehen, wie jemand wächst, ein Team aufbaut, finanziell unabhängig wird.</p>
+      <p>Wer sich bei mir bewirbt, spricht direkt mit mir. Kein HR-Filter, kein anonymer Prozess.</p>
+      <div class="about-facts">
+        <div class="about-fact"><div class="about-fact-num">14+</div><div class="about-fact-label">Jahre Branchenerfahrung</div></div>
+        <div class="about-fact"><div class="about-fact-num">30+</div><div class="about-fact-label">Makler im Team</div></div>
+        <div class="about-fact"><div class="about-fact-num">8</div><div class="about-fact-label">Vertriebsleiter</div></div>
+        <div class="about-fact"><div class="about-fact-num">1,9 Mio.</div><div class="about-fact-label">Einwohner Einzugsgebiet</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="vorteile" style="background:var(--bg)">
+  <div class="inner">
+    <div class="sec-label">Ihre Vorteile</div>
+    <h2 class="sec-title">Warum Deutsche Bank Immobilien?</h2>
+    <p class="sec-sub">Als selbstständiger HGB-Partner profitieren Sie von einem einzigartigen Markt- und Kundenpotenzial.</p>
+    <div class="grid-3">
+      <div class="card"><div class="card-icon">🏛</div><h3>Starke Marke im Rücken</h3><p>Deutsche Bank und Postbank – zwei der bekanntesten Finanzmarken Deutschlands öffnen Ihnen Türen zu Kunden, die Sie alleine nie erreichen würden.</p></div>
+      <div class="card"><div class="card-icon">🤝</div><h3>Riesige Kundenbasis</h3><p>Direkter Zugang zu Kunden aus Postbank- und Deutsche Bank-Filialen in Südwestfalen und dem Rhein-Bergischen Land – qualifizierte Leads von Anfang an.</p></div>
+      <div class="card"><div class="card-icon">💼</div><h3>Unternehmerische Freiheit</h3><p>Selbstständig nach HGB – eigene Zeiteinteilung, eigenes Tempo, eigener Aufbau. Mit dem Netz eines Konzerns, ohne dessen Enge.</p></div>
+      <div class="card"><div class="card-icon">🎯</div><h3>Strukturiertes Einarbeitungskonzept</h3><p>Erfahrene Kollegen begleiten Sie in den ersten Monaten als persönlicher Coach. Mit klaren Zielen und einem erprobten Erfolgsplan.</p></div>
+      <div class="card"><div class="card-icon">💰</div><h3>Attraktives Vergütungsmodell</h3><p>Leistungsabhängige Erfolgsplan-Prämien on top – je nach Profil bis zu 7.000 € quartalsweise, zusätzlich zur Provision.</p></div>
+      <div class="card"><div class="card-icon">📈</div><h3>Weiterbildung & Entwicklung</h3><p>Individuelle Fachseminare, digitale Akquise-Tools und systematische Entwicklung bis zur Führungsrolle.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--white)">
+  <div class="inner">
+    <div class="sec-label">Für wen?</div>
+    <h2 class="sec-title">Das passende Profil für jeden</h2>
+    <p class="sec-sub">Ob erfahrener Profi oder Quereinsteiger – wir haben das richtige Modell für Sie.</p>
+    <div class="profile-grid">
+      <div class="profile-card"><h4>Vertriebsleiter</h4><p>Aufbau und Führung eines eigenen Teams</p></div>
+      <div class="profile-card"><h4>Vertriebsprofi</h4><p>Erfahrung im Verkauf, Fokus auf Kundenbetreuung</p></div>
+      <div class="profile-card"><h4>Quereinsteiger</h4><p>Motivation und Lernbereitschaft zählen mehr als Branchenerfahrung</p></div>
+      <div class="profile-card"><h4>Wiedereinsteiger</h4><p>Zurück in die Immobilienbranche – mit neuem Drive</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg)">
+  <div class="inner">
+    <div class="sec-label">Bewerbungsprozess</div>
+    <h2 class="sec-title">So läuft Ihre Bewerbung ab</h2>
+    <p class="sec-sub" style="margin-bottom:2rem">Transparent, strukturiert, schnell.</p>
+    <div class="prozess-steps">
+      <div class="prozess-step"><div class="step-num-wrap"><div class="step-num">1</div><div class="step-line"></div></div><div class="step-content"><h4>Online-Bewerbung einreichen</h4><p>Füllen Sie das Formular auf dieser Seite aus und laden Sie Ihre Unterlagen hoch. Das KI-Prüftool gibt Ihnen sofortiges Feedback zu jedem Dokument – direkt vor dem Absenden.</p></div></div>
+      <div class="prozess-step"><div class="step-num-wrap"><div class="step-num">2</div><div class="step-line"></div></div><div class="step-content"><h4>Erstes Gespräch</h4><p>Wir melden uns innerhalb weniger Tage für ein erstes Kennenlerngespräch – persönlich oder per Video.</p></div></div>
+      <div class="prozess-step"><div class="step-num-wrap"><div class="step-num">3</div><div class="step-line"></div></div><div class="step-content"><h4>Assessment Center</h4><p>Einstündige strukturierte Gesprächssituation mit dem Direktor und der Regionalbereichsleiterin. Kein Test – ein Gespräch auf Augenhöhe.</p></div></div>
+      <div class="prozess-step"><div class="step-num-wrap"><div class="step-num">4</div><div class="step-line"></div></div><div class="step-content"><h4>Vertragsunterlagen & Start</h4><p>Nach positiver Entscheidung erhalten Sie alle Vertragsunterlagen. Ihr Einarbeiter steht ab Tag 1 an Ihrer Seite.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--white)">
+  <div class="inner">
+    <div class="kontakt-card">
+      <!-- BILD 8 (weißes Hemd, blaue Krawatte): Datei "MeGPTWhiteHemdKrBlue.png" auf Netlify hochladen und src anpassen -->
+      <img src="MeGPTWhiteHemdKrBlue.png" alt="Robin Böcker" style="width:90px;height:90px;border-radius:50%;object-fit:cover;object-position:center top;border:3px solid rgba(255,255,255,0.3);flex-shrink:0;">
+      <div class="kontakt-info">
+        <h3>Robin Böcker</h3>
+        <p>Direktor Immobilienvertrieb · Südwestfalen & Rhein-Bergisches Land<br>Deutsche Bank Immobilien GmbH</p>
+        <div class="kontakt-links">
+          <a href="tel:015154228455" class="klink">📞 0151 54228455</a>
+          <a href="mailto:robin.boecker@db.com" class="klink">✉ robin.boecker@db.com</a>
+          <a href="https://www.linkedin.com/in/robin-böcker-21036b244" target="_blank" rel="noopener" class="klink">🔗 LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider">
+  <h2>Bereit für den nächsten Schritt?</h2>
+  <p>Reichen Sie Ihre Bewerbung direkt online ein – einfach, schnell und vollständig.</p>
+  <a href="#bewerbung" class="btn-white">Jetzt bewerben</a>
+</div>
+
+<section id="bewerbung">
+  <div class="form-wrapper">
+    <div style="margin-bottom:2.5rem">
+      <div class="sec-label" style="margin-top:0">Online-Bewerbung</div>
+      <h2 class="sec-title" style="margin-bottom:.5rem">Unterlagen einreichen</h2>
+      <p style="color:var(--muted);font-size:.92rem">Füllen Sie das Formular aus und laden Sie Ihre Unterlagen hoch. Nutzen Sie den <strong style="color:#3a1d8a">🤖 KI-Prüfen</strong>-Button bei jedem Dokument, um Fehler vor dem Absenden zu erkennen.</p>
+    </div>
+
+    <!-- FORMULAR-DOWNLOAD -->
+    <div class="download-section">
+      <h3>📄 DBI-Formulare herunterladen</h3>
+      <p>Einige Formulare erhalten Sie von Ihrem Ansprechpartner. Falls Sie bereits einen Freigabecode haben, können Sie die Formulare hier direkt herunterladen.</p>
+      <div class="code-row">
+        <input type="text" class="code-input" id="freigabe-input" placeholder="Freigabecode eingeben" maxlength="10">
+        <button class="btn-code" onclick="checkCode()">Freigeben</button>
+      </div>
+      <div class="code-error" id="code-error">Ungültiger Code. Bitte wenden Sie sich an Ihren Ansprechpartner.</div>
+      <div class="download-list" id="download-list">
+        <div class="dl-item"><span>📋 Bewerbungsbogen (DBI-Formular)</span><a class="dl-btn" href="mailto:robin.boecker@db.com?subject=Formularanfrage Bewerbungsbogen">Per E-Mail anfordern</a></div>
+        <div class="dl-item"><span>🔗 Connected Person Fragebogen</span><a class="dl-btn" href="mailto:robin.boecker@db.com?subject=Formularanfrage Connected Person">Per E-Mail anfordern</a></div>
+        <div class="dl-item"><span>💶 Erklärung Umsatzsteuerpflicht</span><a class="dl-btn" href="mailto:robin.boecker@db.com?subject=Formularanfrage Umsatzsteuer">Per E-Mail anfordern</a></div>
+        <div class="dl-item"><span>🛡 Beitrittserklärung Haftpflichtversicherung</span><a class="dl-btn" href="mailto:robin.boecker@db.com?subject=Formularanfrage Haftpflicht">Per E-Mail anfordern</a></div>
+      </div>
+    </div>
+
+    <div class="alert alert-error" id="alert-error"></div>
+    <div class="alert alert-success" id="alert-success"></div>
+    <div class="alert alert-warn" id="alert-warn"></div>
+
+    <form id="bewerbungsform" novalidate>
+      <div class="fsec-title">Persönliche Daten</div>
+      <div class="form-grid">
+        <div class="field"><label>Vorname <span class="req">*</span></label><input type="text" id="vorname" placeholder="Max" required></div>
+        <div class="field"><label>Nachname <span class="req">*</span></label><input type="text" id="nachname" placeholder="Mustermann" required></div>
+      </div>
+      <div class="form-grid">
+        <div class="field"><label>E-Mail <span class="req">*</span></label><input type="email" id="email" placeholder="max@beispiel.de" required></div>
+        <div class="field"><label>Telefon <span class="req">*</span></label><input type="tel" id="telefon" placeholder="0160 12345678" required></div>
+      </div>
+      <div class="form-grid">
+        <div class="field"><label>Straße, Hausnummer <span class="req">*</span></label><input type="text" id="strasse" placeholder="Musterstraße 12" required></div>
+        <div class="field"><label>PLZ / Ort <span class="req">*</span></label><input type="text" id="ort" placeholder="57223 Kreuztal" required></div>
+      </div>
+      <div class="form-grid">
+        <div class="field"><label>Geburtsdatum <span class="req">*</span></label><input type="date" id="geburtsdatum" required></div>
+        <div class="field"><label>Profil <span class="req">*</span></label>
+          <select id="profil" required>
+            <option value="">Bitte wählen …</option>
+            <option>Quereinsteiger</option><option>Wiedereinsteiger</option>
+            <option>Vertriebsprofi</option><option>Vertriebsleiter</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-grid full">
+        <div class="field"><label>Aktuelle / bisherige Tätigkeit</label><input type="text" id="beruf" placeholder="z. B. Selbstständiger Handwerksmeister …"></div>
+      </div>
+      <div class="form-grid full">
+        <div class="field"><label>Wie sind Sie auf uns aufmerksam geworden?</label>
+          <select id="quelle">
+            <option value="">Bitte wählen …</option>
+            <option>Online-Jobbörse</option><option>Empfehlung</option>
+            <option>Postbank / Deutsche Bank Filiale</option>
+            <option>Website Deutsche Bank Immobilien</option>
+            <option>Social Media</option><option>Sonstiges</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-grid full">
+        <div class="field"><label>Kurze Vorstellung / Motivation (optional)</label><textarea id="motivation" placeholder="Was motiviert Sie zu diesem Schritt?"></textarea></div>
+      </div>
+
+      <div class="fsec-title">Unterlagen hochladen</div>
+      <p style="font-size:.82rem;color:var(--muted);margin-bottom:1.25rem">Laden Sie verfügbare Dokumente als PDF hoch. Der <strong style="color:#3a1d8a">🤖 KI-Prüfen</strong>-Button analysiert jedes Dokument sofort auf Vollständigkeit und typische Fehler.</p>
+
+      <div class="upload-list">
+
+        <div class="upload-item" id="ui-lebenslauf">
+          <div class="upload-header">
+            <span class="upload-label">Lebenslauf <span class="ubadge ubadge-p">Pflicht</span></span>
+          </div>
+          <div class="upload-hint">Tabellarisch, lückenlos, mit Foto und Unterschrift. PDF.</div>
+          <div class="upload-row">
+            <label class="upload-btn" for="file-lebenslauf">📎 Datei wählen</label>
+            <input type="file" id="file-lebenslauf" accept=".pdf" onchange="fileSelected(this,'lebenslauf')">
+            <span class="upload-filename" id="fn-lebenslauf">Keine Datei gewählt</span>
+            <button type="button" class="ki-btn" id="ki-lebenslauf" onclick="kiPruefen('lebenslauf')" disabled>🤖 KI-Prüfen</button>
+          </div>
+          <div class="ki-result" id="kr-lebenslauf"></div>
+        </div>
+
+        <div class="upload-item" id="ui-ausweis">
+          <div class="upload-header">
+            <span class="upload-label">Personalausweis (Kopie, beide Seiten) <span class="ubadge ubadge-p">Pflicht</span></span>
+          </div>
+          <div class="upload-hint">Gültig, beide Seiten lesbar. PDF oder Scan.</div>
+          <div class="upload-row">
+            <label class="upload-btn" for="file-ausweis">📎 Datei wählen</label>
+            <input type="file" id="file-ausweis" accept=".pdf,.jpg,.jpeg,.png" onchange="fileSelected(this,'ausweis')">
+            <span class="upload-filename" id="fn-ausweis">Keine Datei gewählt</span>
+            <button type="button" class="ki-btn" id="ki-ausweis" onclick="kiPruefen('ausweis')" disabled>🤖 KI-Prüfen</button>
+          </div>
+          <div class="ki-result" id="kr-ausweis"></div>
+        </div>
+
+        <div class="upload-item" id="ui-bewerbungsbogen">
+          <div class="upload-header">
+            <span class="upload-label">Bewerbungsbogen (DBI-Formular) <span class="ubadge ubadge-p">Pflicht</span></span>
+          </div>
+          <div class="upload-hint">Vollständig ausgefüllt und unterschrieben. Formular oben herunterladen.</div>
+          <div class="upload-row">
+            <label class="upload-btn" for="file-bewerbungsbogen">📎 Datei wählen</label>
+            <input type="file" id="file-bewerbungsbogen" accept=".pdf" onchange="fileSelected(this,'bewerbungsbogen')">
+            <span class="upload-filename" id="fn-bewerbungsbogen">Keine Datei gewählt</span>
+            <button type="button" class="ki-btn" id="ki-bewerbungsbogen" onclick="kiPruefen('bewerbungsbogen')" disabled>🤖 KI-Prüfen</button>
+          </div>
+          <div class="ki-result" id="kr-bewerbungsbogen"></div>
+        </div>
+
+        <div class="upload-item" id="ui-fuehrungszeugnis">
+          <div class="upload-header">
+            <span class="upload-label">Polizeiliches Führungszeugnis <span class="ubadge ubadge-p">Pflicht</span></span>
+          </div>
+          <div class="upload-hint">Nicht älter als 3 Monate. Bundesamt für Justiz. Original postalisch nachzureichen.</div>
+          <div class="upload-row">
+            <label class="upload-btn" for="file-fuehrungszeugnis">📎 Datei wählen</label>
+            <input type="file" id="file-fuehrungszeugnis" accept=".pdf" onchange="fileSelected(this,'fuehrungszeugnis')">
+            <span class="upload-filename" id="fn-fuehrungszeugnis">Keine Datei gewählt</span>
+            <button type="button" class="ki-btn" id="ki-fuehrungszeugnis" onclick="kiPruefen('fuehrungszeugnis')" disabled>🤖 KI-Prüfen</button>
+          </div>
+          <div class="ki-result" id="kr-fuehrungszeugnis"></div>
+        </div>
+
+        <div class="upload-item" id="ui-schufa">
+          <div class="upload-header">
+            <span class="upload-label">SCHUFA-Bonitätsauskunft <span class="ubadge ubadge-p">Pflicht</span></span>
+          </div>
+          <div class="upload-hint">Zertifikat via meineSCHUFA.de, nicht älter als 3 Monate, mit Verifizierungscode. Original postalisch nachzureichen.</div>
+          <div class="upload-row">
+            <label class="upload-btn" for="file-schufa">📎 Datei wählen</label>
+            <input type="file" id="file-schufa" accept=".pdf" onchange="fileSelected(this,'schufa')">
+            <span class="upload-filename" id="fn-schufa">Keine Datei gewählt</span>
+            <button type="button" class="ki-btn" id="ki-schufa" onclick="kiPruefen('schufa')" disabled>🤖 KI-Prüfen</button>
+          </div>
+          <div class="ki-result" id="kr-schufa"></div>
+        </div>
+
+        <div class="upload-item" id="ui-erlaubnis34c">
+          <div class="upload-header">
+            <span class="upload-label">Erlaubnis §34c GewO <span class="ubadge ubadge-p">Pflicht</span></span>
+          </div>
+          <div class="upload-hint">Ziffer 1 (Immobilienvermittlung) muss abgedeckt sein. Muss auf Sie persönlich ausgestellt sein – nicht auf eine GmbH.</div>
+          <div class="upload-row">
+            <label class="upload-btn" for="file-erlaubnis">📎 Datei wählen</label>
+            <input type="file" id="file-erlaubnis" accept=".pdf" onchange="fileSelected(this,'erlaubnis34c')">
+            <span class="upload-filename" id="fn-erlaubnis34c">Keine Datei gewählt</span>
+            <button type="button" class="ki-btn" id="ki-erlaubnis34c" onclick="kiPruefen('erlaubnis34c')" disabled>🤖 KI-Prüfen</button>
+          </div>
+          <div class="ki-result" id="kr-erlaubnis34c"></div>
+        </div>
+
+        <div class="upload-item" id="ui-gewerbeanmeldung">
+          <div class="upload-header">
+            <span class="upload-label">Gewerbeanmeldung / -ummeldung <span class="ubadge ubadge-p">Pflicht</span></span>
+          </div>
+          <div class="upload-hint">Tätigkeit muss Immobilienvermittlung / freier Handelsvertreter §84 HGB ausweisen.</div>
+          <div class="upload-row">
+            <label class="upload-btn" for="file-gewerbe">📎 Datei wählen</label>
+            <input type="file" id="file-gewerbe" accept=".pdf" onchange="fileSelected(this,'gewerbeanmeldung')">
+            <span class="upload-filename" id="fn-gewerbeanmeldung">Keine Datei gewählt</span>
+            <button type="button" class="ki-btn" id="ki-gewerbeanmeldung" onclick="kiPruefen('gewerbeanmeldung')" disabled>🤖 KI-Prüfen</button>
+          </div>
+          <div class="ki-result" id="kr-gewerbeanmeldung"></div>
+        </div>
+
+        <div class="upload-item optional" id="ui-gzr">
+          <div class="upload-header">
+            <span class="upload-label">Auskunft Gewerbezentralregister <span class="ubadge ubadge-o">Optional</span></span>
+          </div>
+          <div class="upload-hint">Nur bei bestehender oder kürzlich beendeter Selbstständigkeit. Nicht älter als 3 Monate.</div>
+          <div class="upload-row">
+            <label class="upload-btn" for="file-gzr">📎 Datei wählen</label>
+            <input type="file" id="file-gzr" accept=".pdf" onchange="fileSelected(this,'gzr')">
+            <span class="upload-filename" id="fn-gzr">Keine Datei gewählt</span>
+            <button type="button" class="ki-btn" id="ki-gzr" onclick="kiPruefen('gzr')" disabled>🤖 KI-Prüfen</button>
+          </div>
+          <div class="ki-result" id="kr-gzr"></div>
+        </div>
+
+        <div class="upload-item optional" id="ui-taetig">
+          <div class="upload-header">
+            <span class="upload-label">Tätigkeitsnachweise letzte 3 Jahre <span class="ubadge ubadge-o">Empfohlen</span></span>
+          </div>
+          <div class="upload-hint">Arbeitszeugnisse und Gewerbean-/-abmeldungen. Mehrere Dokumente bitte in einer PDF zusammenführen.</div>
+          <div class="upload-row">
+            <label class="upload-btn" for="file-taetig">📎 Datei wählen</label>
+            <input type="file" id="file-taetig" accept=".pdf" onchange="fileSelected(this,'taetig')">
+            <span class="upload-filename" id="fn-taetig">Keine Datei gewählt</span>
+            <button type="button" class="ki-btn" id="ki-taetig" onclick="kiPruefen('taetig')" disabled>🤖 KI-Prüfen</button>
+          </div>
+          <div class="ki-result" id="kr-taetig"></div>
+        </div>
+
+      </div>
+
+      <div class="prog-wrap" id="prog-wrap">
+        <div class="prog-label"><span>Wird übermittelt …</span><span id="prog-pct">0%</span></div>
+        <div class="prog-track"><div class="prog-fill" id="prog-fill"></div></div>
+      </div>
+
+      <div class="consent-box">
+        <input type="checkbox" id="datenschutz" required>
+        <label for="datenschutz">Ich habe die <a href="https://www.deutsche-bank-immobilien.de/datenschutz" target="_blank" style="color:var(--db)">Datenschutzhinweise</a> gelesen und stimme der Verarbeitung meiner Bewerbungsdaten zu. Bei Nichteinstellung werden die Daten nach 6 Monaten gelöscht.</label>
+      </div>
+      <div class="submit-row">
+        <p class="submit-note">Mit * markierte Felder sind Pflichtfelder.</p>
+        <button type="submit" class="btn-submit" id="submit-btn">Bewerbung absenden →</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p style="margin-bottom:.5rem">© 2026 Deutsche Bank Immobilien GmbH · Südwestfalen & Rhein-Bergisches Land</p>
+  <div>
+    <a href="https://www.deutsche-bank-immobilien.de/impressum" target="_blank">Impressum</a>
+    <a href="https://www.deutsche-bank-immobilien.de/datenschutz" target="_blank">Datenschutz</a>
+    <a href="https://www.deutsche-bank-immobilien.de/karriere" target="_blank">Karriere bundesweit</a>
+  </div>
+</footer>
+
+<script>
+const uploadedFiles = {};
+const FREIGABE_CODE = "DBI2026";
+
+// Freigabecode
+function checkCode() {
+  const val = document.getElementById('freigabe-input').value.trim().toUpperCase();
+  const err = document.getElementById('code-error');
+  const list = document.getElementById('download-list');
+  if (val === FREIGABE_CODE) {
+    list.classList.add('visible');
+    err.style.display = 'none';
+    document.getElementById('freigabe-input').style.borderColor = '#1a6e3c';
+  } else {
+    err.style.display = 'block';
+    list.classList.remove('visible');
+    document.getElementById('freigabe-input').style.borderColor = '#c62828';
+  }
+}
+
+document.getElementById('freigabe-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') { e.preventDefault(); checkCode(); }
+});
+
+// Datei-Upload
+function fileSelected(input, key) {
+  const file = input.files[0];
+  const item = document.getElementById('ui-' + key) || input.closest('.upload-item');
+  const fn = document.getElementById('fn-' + key);
+  const kiBtn = document.getElementById('ki-' + key);
+  const kr = document.getElementById('kr-' + key);
+  if (file) {
+    uploadedFiles[key] = file;
+    fn.textContent = file.name;
+    fn.classList.add('selected');
+    item.classList.add('has-file');
+    if (kiBtn) kiBtn.disabled = false;
+    if (kr) { kr.style.display = 'none'; kr.textContent = ''; }
+  } else {
+    delete uploadedFiles[key];
+    fn.textContent = 'Keine Datei gewählt';
+    fn.classList.remove('selected');
+    item.classList.remove('has-file');
+    if (kiBtn) kiBtn.disabled = true;
+  }
+}
+
+// KI-Prüfung je Dokument
+const kiPrompts = {
+  lebenslauf: `Du prüfst einen Lebenslauf für eine Bewerbung als selbstständiger Immobilienmakler bei Deutsche Bank Immobilien GmbH. Prüfe das Dokument auf folgende Punkte und gib eine kurze, direkte Rückmeldung auf Deutsch:
+1. Ist ein Foto vorhanden?
+2. Ist der Lebenslauf unterschrieben?
+3. Gibt es zeitliche Lücken im beruflichen Werdegang?
+4. Sind die letzten 3 Jahre vollständig abgedeckt?
+5. Sind alle Zeiträume mit Monatsangabe (nicht nur Jahreszahl)?
+Antworte in maximal 5 kurzen Stichpunkten. Beginne mit ✅ wenn alles in Ordnung, ⚠️ bei Hinweisen, ❌ bei Pflichtfehlern.`,
+
+  ausweis: `Du prüfst eine Kopie eines Personalausweises für eine Bewerbung. Prüfe folgende Punkte:
+1. Sind beide Seiten des Ausweises sichtbar?
+2. Ist das Ablaufdatum des Ausweises erkennbar und noch gültig (aktuelles Datum: ${new Date().toLocaleDateString('de-DE')})?
+3. Sind Name, Geburtsdatum und Ausweisnummer lesbar?
+Antworte in maximal 3 kurzen Stichpunkten. Beginne mit ✅ wenn alles in Ordnung, ⚠️ bei Hinweisen, ❌ bei Fehlern.`,
+
+  bewerbungsbogen: `Du prüfst einen DBI-Bewerbungsbogen (Deutsche Bank Immobilien GmbH). Prüfe folgende Punkte:
+1. Sind alle Pflichtfelder ausgefüllt (Name, Adresse, Geburtsdatum, Kontaktdaten, IBAN, Steuernummer, Finanzamt)?
+2. Ist der Bogen unterschrieben vom Bewerber?
+3. Stimmt die Schreibweise des Namens im gesamten Dokument überein?
+4. Ist die Legitimationsprüfung auf Seite 2 vollständig ausgefüllt (Ausweisnummer, Behörde, Datum)?
+5. Gibt es große Abweichungen zwischen bisherigen und angestrebten Einkünften (Faktor >2)?
+Antworte in maximal 5 kurzen Stichpunkten. Beginne mit ✅ wenn alles in Ordnung, ⚠️ bei Hinweisen, ❌ bei Pflichtfehlern.`,
+
+  fuehrungszeugnis: `Du prüfst ein polizeiliches Führungszeugnis vom Bundesamt für Justiz. Prüfe folgende Punkte:
+1. Ist das Ausstellungsdatum erkennbar und nicht älter als 3 Monate (aktuelles Datum: ${new Date().toLocaleDateString('de-DE')})?
+2. Lautet das Ergebnis "Keine Eintragung"?
+3. Stimmt der Name auf dem Zeugnis mit dem Bewerber überein?
+Antworte in maximal 3 kurzen Stichpunkten. Beginne mit ✅ wenn alles in Ordnung, ⚠️ bei Hinweisen, ❌ bei Ausschlussgründen.`,
+
+  schufa: `Du prüfst eine SCHUFA-Bonitätsauskunft. Prüfe folgende Punkte:
+1. Ist das Ausstellungsdatum erkennbar und nicht älter als 3 Monate (aktuelles Datum: ${new Date().toLocaleDateString('de-DE')})?
+2. Ist ein Verifizierungscode vorhanden?
+3. Lautet das Ergebnis "ausschließlich positive Bonitätsinformationen"?
+4. Gibt es Hinweise auf Negativeinträge, Abwicklungskonten oder Insolvenz?
+Antworte in maximal 4 kurzen Stichpunkten. Beginne mit ✅ wenn positiv, ⚠️ bei Hinweisen, ❌ bei Ausschlussgründen (Insolvenz/Abwicklungskonto).`,
+
+  erlaubnis34c: `Du prüfst eine Erlaubnis gemäß §34c GewO. Prüfe folgende Punkte:
+1. Ist die Erlaubnis auf eine natürliche Person (nicht auf eine GmbH oder andere juristische Person) ausgestellt?
+2. Deckt sie Ziffer 1 ab (Vermittlung von Grundstücken / Wohnräumen)?
+3. Ist der Name auf der Erlaubnis erkennbar?
+Antworte in maximal 3 kurzen Stichpunkten. Beginne mit ✅ wenn alles in Ordnung, ❌ wenn auf GmbH ausgestellt (dies ist ein kritischer Fehler – persönliche Erlaubnis erforderlich).`,
+
+  gewerbeanmeldung: `Du prüfst eine Gewerbeanmeldung. Prüfe folgende Punkte:
+1. Ist die angemeldete Tätigkeit Immobilienvermittlung / §34c / freier Handelsvertreter §84 HGB?
+2. Ist die Anmeldung behördlich bestätigt (Stempel / Unterschrift der Behörde)?
+3. Ist der Name des Gewerbetreibenden erkennbar?
+Antworte in maximal 3 kurzen Stichpunkten. Beginne mit ✅ wenn alles in Ordnung, ⚠️ bei Hinweisen, ❌ bei Fehlern.`,
+
+  gzr: `Du prüfst eine Auskunft aus dem Gewerbezentralregister vom Bundesamt für Justiz. Prüfe folgende Punkte:
+1. Ist das Ausstellungsdatum erkennbar und nicht älter als 3 Monate (aktuelles Datum: ${new Date().toLocaleDateString('de-DE')})?
+2. Gibt es Eintragungen? Falls ja, welcher Art?
+3. Stimmt der Name überein?
+Antworte in maximal 3 kurzen Stichpunkten. Beginne mit ✅ wenn keine Eintragungen, ⚠️ wenn Eintragungen vorhanden (Sondergenehmigung erforderlich).`,
+
+  taetig: `Du prüfst Tätigkeitsnachweise (Arbeitszeugnisse und/oder Gewerbeanmeldungen/-abmeldungen). Prüfe folgende Punkte:
+1. Decken die Nachweise die letzten 3 Jahre vollständig ab?
+2. Gibt es zeitliche Lücken zwischen den Nachweisen?
+3. Bei Selbstständigkeit: Ist sowohl eine Gewerbeanmeldung als auch eine Gewerbeabmeldung vorhanden?
+4. Sind alle Tätigkeiten als abgeschlossen erkennbar?
+Antworte in maximal 4 kurzen Stichpunkten. Beginne mit ✅ wenn vollständig, ⚠️ bei Lücken oder fehlenden Abmeldungen.`
+};
+
+async function kiPruefen(key) {
+  const file = uploadedFiles[key];
+  if (!file) return;
+  const btn = document.getElementById('ki-' + key);
+  const result = document.getElementById('kr-' + key);
+  btn.disabled = true;
+  btn.textContent = '⏳ Prüft …';
+  result.className = 'ki-result ki-loading';
+  result.style.display = 'block';
+  result.textContent = 'KI analysiert das Dokument …';
+
+  try {
+    const base64 = await fileToBase64(file);
+    const prompt = kiPrompts[key] || 'Prüfe dieses Dokument auf Vollständigkeit und typische Fehler. Antworte auf Deutsch in kurzen Stichpunkten.';
+
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        messages: [{
+          role: 'user',
+          content: [
+            { type: 'document', source: { type: 'base64', media_type: 'application/pdf', data: base64 } },
+            { type: 'text', text: prompt }
+          ]
+        }]
+      })
+    });
+
+    const data = await resp.json();
+    const text = data.content?.map(c => c.text || '').join('') || 'Keine Antwort erhalten.';
+
+    const hasError = text.includes('❌');
+    const hasWarn = text.includes('⚠️');
+    result.className = 'ki-result ' + (hasError ? 'ki-err' : hasWarn ? 'ki-warn' : 'ki-ok');
+    result.innerHTML = text.replace(/\n/g, '<br>');
+  } catch (err) {
+    result.className = 'ki-result ki-err';
+    result.textContent = 'Prüfung konnte nicht durchgeführt werden. Bitte Dokument direkt einreichen.';
+  }
+
+  btn.disabled = false;
+  btn.textContent = '🤖 Erneut prüfen';
+}
+
+function fileToBase64(file) {
+  return new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onload = () => res(r.result.split(',')[1]);
+    r.onerror = () => rej(new Error('Datei konnte nicht gelesen werden'));
+    r.readAsDataURL(file);
+  });
+}
+
+// Formular absenden
+function val(id) { return document.getElementById(id).value.trim(); }
+
+function showAlert(type, msg) {
+  ['error','success','warn'].forEach(t => { const el = document.getElementById('alert-'+t); el.style.display='none'; el.textContent=''; });
+  const el = document.getElementById('alert-'+type);
+  el.textContent = msg; el.style.display = 'block';
+  el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+document.getElementById('bewerbungsform').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const pflicht = ['lebenslauf','ausweis','bewerbungsbogen','fuehrungszeugnis','schufa','erlaubnis34c','gewerbeanmeldung'];
+  const missing = pflicht.filter(k => !uploadedFiles[k]);
+  if (!val('vorname')||!val('nachname')||!val('email')||!val('telefon')||!val('strasse')||!val('ort')||!val('geburtsdatum')||!val('profil')) {
+    showAlert('error','Bitte füllen Sie alle Pflichtfelder aus.'); return;
+  }
+  if (!document.getElementById('datenschutz').checked) {
+    showAlert('error','Bitte stimmen Sie den Datenschutzhinweisen zu.'); return;
+  }
+  if (missing.length > 0) {
+    const labels = { lebenslauf:'Lebenslauf', ausweis:'Personalausweis', bewerbungsbogen:'Bewerbungsbogen', fuehrungszeugnis:'Führungszeugnis', schufa:'SCHUFA', erlaubnis34c:'§34c Erlaubnis', gewerbeanmeldung:'Gewerbeanmeldung' };
+    showAlert('warn','Pflichtdokumente fehlen: ' + missing.map(k=>labels[k]).join(', ')); return;
+  }
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true; btn.textContent = 'Wird übermittelt …';
+  const pw = document.getElementById('prog-wrap');
+  const pf = document.getElementById('prog-fill');
+  const pp = document.getElementById('prog-pct');
+  pw.style.display = 'block';
+  let p = 0;
+  const iv = setInterval(() => { p = Math.min(p + Math.random()*12, 88); pf.style.width=p+'%'; pp.textContent=Math.round(p)+'%'; }, 200);
+  try {
+    const body = new FormData();
+    body.append('_subject', 'Neue Bewerbung: '+val('vorname')+' '+val('nachname')+' ('+val('profil')+')');
+    ['vorname','nachname','email','telefon','strasse','ort','geburtsdatum','profil','beruf','quelle','motivation'].forEach(id => body.append(id, val(id)));
+    Object.entries(uploadedFiles).forEach(([k,f]) => body.append('dokument_'+k, f, f.name));
+    const r = await fetch('https://formsubmit.co/robin.boecker@db.com', { method: 'POST', body });
+    clearInterval(iv); pf.style.width='100%'; pp.textContent='100%';
+    setTimeout(() => {
+      pw.style.display='none';
+      if (r.ok) {
+        showAlert('success','✓ Ihre Bewerbung wurde erfolgreich übermittelt. Robin Böcker meldet sich in Kürze. Vielen Dank!');
+        document.getElementById('bewerbungsform').reset();
+        Object.keys(uploadedFiles).forEach(k => delete uploadedFiles[k]);
+        document.querySelectorAll('.upload-item').forEach(item => { item.classList.remove('has-file'); });
+        document.querySelectorAll('.upload-filename').forEach(fn => { fn.textContent='Keine Datei gewählt'; fn.classList.remove('selected'); });
+        document.querySelectorAll('.ki-btn').forEach(b => b.disabled=true);
+        document.querySelectorAll('.ki-result').forEach(r => { r.style.display='none'; });
+      } else {
+        showAlert('error','Fehler beim Übermitteln. Bitte senden Sie Unterlagen direkt an robin.boecker@db.com.');
+      }
+      btn.disabled=false; btn.textContent='Bewerbung absenden →';
+    }, 400);
+  } catch {
+    clearInterval(iv); pw.style.display='none';
+    showAlert('error','Verbindungsfehler. Bitte senden Sie Unterlagen direkt an robin.boecker@db.com.');
+    btn.disabled=false; btn.textContent='Bewerbung absenden →';
+  }
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => { e.preventDefault(); const t = document.querySelector(a.getAttribute('href')); if(t) t.scrollIntoView({behavior:'smooth'}); });
+});
+</script>
+</body>
+</html>
