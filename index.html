@@ -220,6 +220,25 @@ section { padding: 4rem 2rem; }
 .post-card-footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: .75rem; font-size: .75rem; color: var(--muted); }
 .post-card-reactions { display: flex; align-items: center; gap: .3rem; }
 
+/* REGIONS GRID */
+.regions-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(185px, 1fr)); gap: 1rem; }
+.region-card { background: white; border: 1px solid var(--border); border-radius: var(--rl); overflow: hidden; transition: border-color .2s, transform .2s; }
+.region-card:hover { border-color: var(--db); transform: translateY(-2px); }
+.region-img-wrap { height: 110px; overflow: hidden; background: var(--db-light); }
+.region-img-wrap.no-img { display: flex; align-items: center; justify-content: center; }
+.region-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s; }
+.region-card:hover .region-img { transform: scale(1.04); }
+.region-body { padding: .9rem 1rem; }
+.region-top { display: flex; align-items: center; gap: .6rem; margin-bottom: .75rem; }
+.region-wappen { width: 30px; height: 30px; object-fit: contain; flex-shrink: 0; }
+.region-name { font-size: .9rem; font-weight: 600; color: var(--text); line-height: 1.2; }
+.region-markt { font-size: .72rem; color: var(--muted); margin-top: .1rem; }
+.region-vtl { display: flex; align-items: center; gap: .6rem; border-top: 1px solid var(--border); padding-top: .7rem; }
+.region-vtl-photo { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 1.5px solid var(--border); }
+.region-vtl-name { font-size: .78rem; font-weight: 600; color: var(--text); line-height: 1.3; }
+.region-vtl-role { font-size: .68rem; color: var(--muted); }
+@media (max-width: 700px) { .regions-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); } }
+
 .divider { background: var(--db); color: white; padding: 3rem 2rem; text-align: center; }
 .divider h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: .75rem; }
 .divider p { opacity: .85; margin-bottom: 1.5rem; }
@@ -466,6 +485,211 @@ footer a:hover { color: white; }
             <p>Nach gemeinsamer Entscheidung: Vertragsunterlagen, strukturiertes Onboarding, persönliche Einarbeitung. Dein Einarbeiter steht ab Tag 1 an deiner Seite.</p>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGIONEN & TEAM -->
+<section id="regionen" style="background:var(--bg)">
+  <div class="inner">
+    <div class="sec-label">Meine Regionen</div>
+    <h2 class="sec-title">Wo Sie starten können</h2>
+    <p class="sec-sub">Zwei starke Regionen, acht Märkte, sieben erfahrene Vertriebsleiter – und ein Direktor, der jeden Schritt kennt.</p>
+
+    <!-- Region 1 -->
+    <div style="margin-bottom:2.5rem">
+      <div style="display:inline-flex;align-items:center;gap:.5rem;background:var(--db-light);color:var(--db);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:.35rem .9rem;border-radius:20px;margin-bottom:1.25rem;">
+        Region 1 · Rhein-Bergisches Land
+      </div>
+      <div class="regions-grid">
+
+        <div class="region-card">
+          <div class="region-img-wrap">
+            <img src="Cormorant_under__22Schwebebahn_22_in_Wuppertal__Germany.jpg" alt="Wuppertal" class="region-img" onerror="this.parentElement.classList.add('no-img')">
+          </div>
+          <div class="region-body">
+            <div class="region-top">
+              <img src="DEU_Wuppertal_COA_svg.png" alt="" class="region-wappen">
+              <div>
+                <div class="region-name">Wuppertal</div>
+                <div class="region-markt">Markt 97</div>
+              </div>
+            </div>
+            <div class="region-vtl">
+              <img src="Rollinghoff.png" alt="Röllinghoff" class="region-vtl-photo">
+              <div>
+                <div class="region-vtl-name">Matthias Röllinghoff</div>
+                <div class="region-vtl-role">Vertriebsleiter</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="region-card">
+          <div class="region-img-wrap">
+            <img src="CB_Ko_ln_Bf_Gummersbach-wm.jpg" alt="Gummersbach" class="region-img" onerror="this.parentElement.classList.add('no-img')">
+          </div>
+          <div class="region-body">
+            <div class="region-top">
+              <img src="Stadtwappen-GM_k.png" alt="" class="region-wappen">
+              <div>
+                <div class="region-name">Gummersbach</div>
+                <div class="region-markt">Markt 179</div>
+              </div>
+            </div>
+            <div class="region-vtl">
+              <img src="Warkentin.png" alt="Warkentin" class="region-vtl-photo">
+              <div>
+                <div class="region-vtl-name">Vita Warkentin</div>
+                <div class="region-vtl-role">Vertriebsleiterin</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="region-card">
+          <div class="region-img-wrap">
+            <img src="Neues_Schloss_Bensberg__June_2021.jpg" alt="Bergisch Gladbach" class="region-img" onerror="this.parentElement.classList.add('no-img')">
+          </div>
+          <div class="region-body">
+            <div class="region-top">
+              <img src="DEU_Bergisch_Gladbach_COA_svg.png" alt="" class="region-wappen">
+              <div>
+                <div class="region-name">Bergisch Gladbach</div>
+                <div class="region-markt">Markt 180</div>
+              </div>
+            </div>
+            <div class="region-vtl">
+              <img src="Klier.png" alt="Klier" class="region-vtl-photo">
+              <div>
+                <div class="region-vtl-name">Florian Klier</div>
+                <div class="region-vtl-role">Vertriebsleiter</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="region-card">
+          <div class="region-img-wrap">
+            <img src="Panorama_Altablagerung_Dhu_nnaue__AK_Leverkusen_West_und_Rheinbru_cke_Leverkusen-0410-12.jpg" alt="Leverkusen" class="region-img" onerror="this.parentElement.classList.add('no-img')">
+          </div>
+          <div class="region-body">
+            <div class="region-top">
+              <img src="Wappen_Leverkusen_svg.png" alt="" class="region-wappen">
+              <div>
+                <div class="region-name">Leverkusen</div>
+                <div class="region-markt">Markt 188</div>
+              </div>
+            </div>
+            <div class="region-vtl">
+              <img src="Treszioch.png" alt="Trzesioch" class="region-vtl-photo">
+              <div>
+                <div class="region-vtl-name">Lukas Trzesioch</div>
+                <div class="region-vtl-role">Vertriebsleiter</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="region-card">
+          <div class="region-img-wrap">
+            <img src="Rhein_und_Promenade_Koeln-Muelheim.jpg" alt="Köln-Ost" class="region-img" onerror="this.parentElement.classList.add('no-img')">
+          </div>
+          <div class="region-body">
+            <div class="region-top">
+              <img src="DEU_Muelheim_am_Rhein_COA_svg.png" alt="" class="region-wappen">
+              <div>
+                <div class="region-name">Köln-Ost · Mülheim</div>
+                <div class="region-markt">Markt 190/191</div>
+              </div>
+            </div>
+            <div class="region-vtl">
+              <img src="Klier.png" alt="Klier" class="region-vtl-photo">
+              <div>
+                <div class="region-vtl-name">Florian Klier</div>
+                <div class="region-vtl-role">Vertriebsleiter</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Region 2 -->
+    <div>
+      <div style="display:inline-flex;align-items:center;gap:.5rem;background:var(--green-bg);color:var(--green);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:.35rem .9rem;border-radius:20px;margin-bottom:1.25rem;">
+        Region 2 · Südwestfalen
+      </div>
+      <div class="regions-grid">
+
+        <div class="region-card">
+          <div class="region-img-wrap">
+            <img src="Luedenscheid-Rathaus1-Bubo.JPG" alt="Lüdenscheid" class="region-img" onerror="this.parentElement.classList.add('no-img')">
+          </div>
+          <div class="region-body">
+            <div class="region-top">
+              <img src="DEU_Lu_denscheid_COA_svg.png" alt="" class="region-wappen">
+              <div>
+                <div class="region-name">Lüdenscheid</div>
+                <div class="region-markt">Markt 87–89</div>
+              </div>
+            </div>
+            <div class="region-vtl">
+              <img src="Otto.png" alt="Otto" class="region-vtl-photo">
+              <div>
+                <div class="region-vtl-name">Sabrina Otto</div>
+                <div class="region-vtl-role">Vertriebsleiterin</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="region-card">
+          <div class="region-img-wrap">
+            <img src="Hagen_Rathausplatz.jpg" alt="Hagen" class="region-img" onerror="this.parentElement.classList.add('no-img')">
+          </div>
+          <div class="region-body">
+            <div class="region-top">
+              <img src="DEU_Hagen_COA_svg.png" alt="" class="region-wappen">
+              <div>
+                <div class="region-name">Hagen</div>
+                <div class="region-markt">Markt 88–89</div>
+              </div>
+            </div>
+            <div class="region-vtl">
+              <img src="Papadopoulos.png" alt="Papadopoulos" class="region-vtl-photo">
+              <div>
+                <div class="region-vtl-name">Dimitrios Papadopoulos</div>
+                <div class="region-vtl-role">Vertriebsleiter</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="region-card">
+          <div class="region-img-wrap">
+            <img src="SI_Oberes_Schloss_Giersberg.jpg" alt="Siegen" class="region-img" onerror="this.parentElement.classList.add('no-img')">
+          </div>
+          <div class="region-body">
+            <div class="region-top">
+              <img src="Wappen_Siegen.svg" alt="" class="region-wappen">
+              <div>
+                <div class="region-name">Siegen</div>
+                <div class="region-markt">Markt 178</div>
+              </div>
+            </div>
+            <div class="region-vtl">
+              <img src="Kirchner.png" alt="Kirchner" class="region-vtl-photo">
+              <div>
+                <div class="region-vtl-name">Marc Kirchner</div>
+                <div class="region-vtl-role">Vertriebsleiter</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
